@@ -9,18 +9,18 @@ Refer to the paper for more details.
 
 ![Alt text](fTDD.png?raw=true "fTDD")
 
-As this is a matlab function (adding a python version soon), then usage is really simply, just call this function by submitting the signals matrix as input
+As this is a matlab function (adding a python version soon), then usage is really simply, just call this function by submitting the signals matrix (denoted as variable x) as input
 
 	feat = getfTDDfeat_Online(x,steps,winsize,wininc)
 
 Inputs
-    * x: 			columns of signals
-    * steps:     	variable denoting the number of steps away from the current window (for example a number from 3 to 25, read the paper)
-    * winsize:	window size (length of x)
-    * wininc:		spacing of the windows (winsize)
+	x: 			columns of signals
+    	steps:     	variable denoting the number of steps away from the current window (for example a number from 3 to 25, read the paper)
+    	winsize:	window size (length of x)
+    	wininc:		spacing of the windows (winsize)
     
 Outputs
-    * feat:      fused time domain features (6 features per channel)
+    	feat:      fused time domain features (6 features per channel)
 
 
 Pay attention to features normalization
