@@ -7,7 +7,7 @@ summarized in the following three steps:
 3) apply data fusion on the resulting orientation features for the current and previous time windows and use the result as the final feature set. 
 Refer to the paper for more details. 
 
-![alt text](https://github.com/Rkhushab/getfTDDfeatures/fTDD.png)
+![Alt text](fTDD.png?raw=true "fTDD")
 
 As this is a matlab function (adding a python version soon), then usage is really simply, just call this function by submitting the signals matrix as input
 
