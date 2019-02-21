@@ -3,9 +3,9 @@ fTDD: A Fusion of Time-Domain Descriptors for Improved Myoelectric Hand Control
 fTDD is a feature extraction algorithm for the classification of ***any kind of signals***, although this was mainly developed for myoelectric, a.k.a, Electromyogram (EMG), signal feature extraction for prostheses control. The algorithm employs the ***orientation*** between a set of descriptors of muscular activities and a nonlinearly mapped version of them. It incorporates information about the Electromyogram (EMG) signal power spectrum characteristics derived from each analysis window while correlating that with the descriptors of the n'th previous windows for robust activity recognition. The proposed idea can be 
 summarized in the following three steps: 
 
-	1) extract power spectrum moments from the current analysis window and its nonlinearly scaled version in time-domain through Fourier transform relations, 
-	2) compute the orientation between the two sets of moments, and 
-	3) apply data fusion on the resulting orientation features for the current and previous time windows and use the result as the final feature set. 
+* Extract power spectrum moments from the current analysis window and its nonlinearly scaled version in time-domain through Fourier transform relations, 
+* Compute the orientation between the two sets of moments, and 
+* Apply data fusion on the resulting orientation features for the current and previous time windows and use the result as the final feature set. 
 
 Refer to the paper for more details. 
 
@@ -17,10 +17,10 @@ As this is a matlab function (adding a python version soon), then usage is reall
 
 * Inputs
 
-	x: 		columns of signals
-	steps:     	variable denoting the number of steps away from the current window (for example a number from 3 to 25)
-	winsize:	window size (length of x)
-	wininc:		spacing of the windows (winsize)
+	x: columns of signals
+	steps: variable denoting the number of steps away from the current window (for example a number from 3 to 25)
+	winsize: window size (length of x)
+	wininc:	spacing of the windows (winsize)
 
 * Outputs
 
