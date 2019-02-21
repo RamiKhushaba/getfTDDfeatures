@@ -1,7 +1,7 @@
 %
-% getfTDDfeat: A Fusion of Time-Domain Descriptors.
+% getfTDDfeat: A Fusion of Time-Domain Descriptors (online version).
 %
-% feat = getfTDDfeat(x,winsize,wininc,datawin,dispstatus)
+% feat = getfTDDfeat_Online(x,winsize,wininc,datawin,dispstatus)
 %
 % Author Rami Khushaba
 %
