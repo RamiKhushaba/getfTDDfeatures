@@ -16,9 +16,9 @@ As this is a matlab function (adding a python version soon), then usage is reall
 * Inputs
 
 	x: 		columns of signals.
-    	steps:     	variable denoting the number of steps away from the current window (for example a number from 3 to 25, read the paper).
-    	winsize:	window size (length of x).
-    	wininc:		spacing of the windows (winsize).
+	steps:     	variable denoting the number of steps away from the current window (for example a number from 3 to 25, read the paper).
+	winsize:	window size (length of x).
+	wininc:		spacing of the windows (winsize).
 
 * Outputs
 
