@@ -28,7 +28,7 @@ As this is a matlab function (adding a python version soon), then usage is reall
 
 Pay attention to features normalization
 -------
-For the online version I have included the zscore normlization from matlab. However, if you have your own normalization method then please comment line 89 in "getfTDDfeat_Online.m" and add your own.
+For the online version I have included the two normlization methods. However, if you have your own normalization method then please comment lines 90 and 91 in "getfTDDfeat_Online.m" and add your own.
 
 
 References
