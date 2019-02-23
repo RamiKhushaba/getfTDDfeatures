@@ -43,16 +43,17 @@
 
 function feat = getfTDDfeat_Online(x,steps,winsize,wininc)
 
-
-datasize = size(x,1);
-Nsignals = size(x,2);
-numwin = floor((datasize - winsize)/wininc)+1;
+NFPC       = 6; % we extract 6 features/channel
+datasize   = size(x,1);
+Nsignals   = size(x,2);
+numwin     = floor((datasize - winsize)/wininc)+1;
+NumSigFeat = Nsignals*NFPC;
 
 % allocate memory
-feat = zeros(numwin,Nsignals*6);
-
-st = 1;
-en = winsize;
+feat       = zeros(numwin,Nsignals*NFPC);
+% sliding windows increments
+st         = 1;
+en         = winsize;
 for i = 1:numwin
     
     curwin = x(st:en,:);
@@ -62,8 +63,8 @@ for i = 1:numwin
     efp = KSM1(log(curwin.^2+eps).^2);
     
     % steps2: Correlation analysis
-    num = -2.*ebp.*efp;
-    den = efp.*efp+ebp.*ebp;
+    num = -2.*ebp.*efp;num = sum(num'*num)./NumSigFeat;
+    den = efp.*efp+ebp.*ebp;den = sum(den'*den)./NumSigFeat;
     
     if i>steps
         % steps3: Extract features from a previous windows of original signal and a nonlinear version
@@ -72,8 +73,8 @@ for i = 1:numwin
         efp = KSM1(log(x((st-steps*wininc):(en-steps*wininc),:).^2+eps).^2);
         
         % steps4: Correlation analysis
-        num2 = -2.*ebp.*efp;
-        den2 = efp.*efp+ebp.*ebp;
+        num2 = -2.*ebp.*efp;num2 = sum(num2'*num2)./NumSigFeat;
+        den2 = efp.*efp+ebp.*ebp;den2 = sum(den2'*den2)./NumSigFeat;
         
         % feature extraction goes here: simply multiply the above features
         feat(i,:) = (num./den) .* (num2./den2);
@@ -88,7 +89,7 @@ end
 
 %% Chose your own normalization here
 % feat = zscore(feat')';
-feat = feat - repmat(min(feat,[],2),1,Nsignals*6);
+feat = feat - repmat(min(feat,[],2),1,Nsignals*NFPC);
 
 function Feat = KSM1(S)
 % Time-domain power spectral moments (TD-PSD)
@@ -139,4 +140,3 @@ WLR    = sum(abs(d1))./sum(abs(d2));
 
 %% All features together
 Feat   = log(abs([(m0) (m0-m2) (m0-m4) sparsi IRF WLR]));
-
