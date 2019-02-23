@@ -86,7 +86,9 @@ for i = 1:numwin
     en = en + wininc;
 end
 
-feat = zscore(feat')';
+%% Chose your own normalization here
+% feat = zscore(feat')';
+feat = feat - repmat(min(feat,[],2),1,Nsignals*6);
 
 function Feat = KSM1(S)
 % Time-domain power spectral moments (TD-PSD)
